@@ -1,4 +1,4 @@
-name: npm-publish
+name: Check for Lint
 on:
   - pull_request
 jobs:
