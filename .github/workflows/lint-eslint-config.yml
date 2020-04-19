@@ -2,8 +2,8 @@ name: Check for Lint
 on:
   - pull_request
 jobs:
-  npm-publish:
-    name: npm-publish
+  lint:
+    name: lint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
