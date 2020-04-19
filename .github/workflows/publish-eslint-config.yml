@@ -8,6 +8,16 @@ jobs:
     name: npm-publish
     runs-on: ubuntu-latest
     steps:
+      - name: Check if package.json version updated
+      - uses: MontyD/package-json-updated-action@c2038ab106288f75eab2c0c75fff04617d886963
+        id: version-updated
+        with:
+          path: package.json
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Abandon if package.json version not updated
+        if: !steps.version-updated.outputs.has-updated
+        run: echo package.json version was not updated on the last commit && exit 1
       - name: Checkout repository
         uses: actions/checkout@01aecccf739ca6ff86c0539fbc67a7a5007bbc81
       - name: Set up Node.js
