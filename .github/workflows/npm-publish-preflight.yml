@@ -1,0 +1,24 @@
+name: NPM Publish Pre-Flight
+on:
+  pull_request:
+    branches:
+      - master
+jobs:
+  npm-publish-preflight:
+    name: npm-publish-preflight
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if package.json version updated
+        uses: MontyD/package-json-updated-action@c2038ab106288f75eab2c0c75fff04617d886963
+        id: version-updated
+        with:
+          path: package.json
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Abandon if package.json version not updated
+        if: "!steps.version-updated.outputs.has-updated"
+        run: |
+          echo package.json version was not updated on the last commit &&
+          echo has-updated ${{ steps.version-updated.outputs.has-updated }} &&
+          echo current-package-version ${{ steps.version-updated.outputs.current-package-version }} && 
+          exit 1
