@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "airbnb",
+    "airbnb/hooks",
+    "plugin:promise/recommended",
+    "plugin:unicorn/recommended"
+  ],
+  "plugins": ["eslint-comments", "promise", "unicorn", "lodash-fp"],
+  "env": {
+    "node": true
+  }
+}
