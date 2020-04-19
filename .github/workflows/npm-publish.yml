@@ -16,7 +16,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Abandon if package.json version not updated
-        if: ! steps.version-updated.outputs.has-updated
+        if: "!steps.version-updated.outputs.has-updated"
         run: |
           echo package.json version was not updated on the last commit &&
           echo has-updated ${{ steps.version-updated.outputs.has-updated }} &&
