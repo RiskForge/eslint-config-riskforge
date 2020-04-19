@@ -23,7 +23,7 @@ jobs:
           restore-keys: |
             ${{ runner.OS }}-node-
             ${{ runner.OS }}-
-      - name: NPM Install Dependenceis
+      - name: NPM Install Dependencies
         run: npm ci
       - name: NPM Publish
         run: npm publish --access public
