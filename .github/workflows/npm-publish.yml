@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check if package.json version updated
-      - uses: MontyD/package-json-updated-action@c2038ab106288f75eab2c0c75fff04617d886963
+        uses: MontyD/package-json-updated-action@c2038ab106288f75eab2c0c75fff04617d886963
         id: version-updated
         with:
           path: package.json
