@@ -22,21 +22,3 @@ jobs:
           echo has-updated ${{ steps.version-updated.outputs.has-updated }} &&
           echo current-package-version ${{ steps.version-updated.outputs.current-package-version }} && 
           exit 1
-      - name: Checkout repository
-        uses: actions/checkout@01aecccf739ca6ff86c0539fbc67a7a5007bbc81
-      - name: Set up Node.js
-        uses: actions/setup-node@83c9f7a7df54d6b57455f7c57ac414f2ae5fb8de
-        with:
-          node-version: 12.x
-      - name: Cache NPM Modules
-        uses: actions/cache@70655ec8323daeeaa7ef06d7c56e1b9191396cbe
-        with:
-          path: ~/.npm
-          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.OS }}-node-
-            ${{ runner.OS }}-
-      - name: Install Dependenceis
-        run: npm ci
-      - name: Check for Lint
-        run: npm run lint

@@ -38,8 +38,6 @@ jobs:
             ${{ runner.OS }}-
       - name: Install Dependenceis
         run: npm ci
-      - name: Check for Lint
-        run: npm run lint
       - name: Publish
         run: npm publish
         env:
