@@ -6,13 +6,13 @@ jobs:
     name: lint
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@01aecccf739ca6ff86c0539fbc67a7a5007bbc81
       - name: Set up Node.js
         uses: actions/setup-node@83c9f7a7df54d6b57455f7c57ac414f2ae5fb8de
         with:
           node-version: 12.x
-      - name: Cache NPM Modules
+      - name: NPM Module Cache
         uses: actions/cache@70655ec8323daeeaa7ef06d7c56e1b9191396cbe
         with:
           path: ~/.npm
@@ -20,7 +20,7 @@ jobs:
           restore-keys: |
             ${{ runner.OS }}-node-
             ${{ runner.OS }}-
-      - name: Install Dependenceis
+      - name: NPM Install Dependencies
         run: npm ci
       - name: Check for Lint
         run: npm run lint
