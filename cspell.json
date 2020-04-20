@@ -1,0 +1,26 @@
+{
+    "version": "0.1",
+    "ignorePaths": [
+        "**/package-lock.json",
+        "node_modules/**",
+        ".eslintcache",
+        ".git/**"
+    ],
+    "words": [
+        "airbnb",
+        "bruton",
+        "complyify",
+        "dbaeumer",
+        "doctoc",
+        "editorconfig",
+        "esbenp",
+        "eslintcache",
+        "importsortrc",
+        "linebreak",
+        "markdownlint",
+        "maxlevel",
+        "notitle",
+        "riskforge",
+        "streetsidesoftware"
+    ]
+}
